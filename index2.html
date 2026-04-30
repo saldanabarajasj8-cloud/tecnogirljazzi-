@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>Grupo 60#</h1>
+  <h2>Herramienta de calculo</h2>
+  <p>Jazmin Saldaña Barajas </p> 
+</div>
+  <div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title">Heading</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+<a href="index.html" class="btn btn-secondary">Mas</a>
+
+  </div>
+</div>
+
+<div class="container-fluid mt-3">
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+    Mas herramientas
+  </button>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Calcular</h3>
+  
+    <p>Ingrese numeros separados por coma</p>
+<input type="text" id="numeros"><br><br>
+
+<button onclick="calcularpromedio()">Calcular promedio</button>
+
+<br>
+<script>
+    function calcularpromedio(){
+    let entrada = document.getElementById("numeros").value;
+let arreglo = entrada.split(",");
+let suma = 0;
+
+for (let i = 0; i < arreglo.length; i++) {
+    let numero = parseFloat(arreglo[i]);
+
+    if(isNaN(numero)) {
+        alert("Error: Ingrese solo numeros separados por comas");
+        return;
+    }
+    suma += numero;
+}
+let promedio = suma / arreglo.length;
+
+alert("El promedio es: " + promedio);
+
+alert("El promedio es: "+ promedio);
+
+}
+</script>
+
+<br>
+    </div>
+    <div class="col-sm-4">
+      <h3>Formula general</h3>
+<label>a:</label>
+<input type="number" id="a"><br><br>
+
+<label>b:</label>
+<input type="number" id="b"><br><br>
+
+
+<label>c:</label>
+<input type="number" id="c"><br><br>
+
+<button onclick="x1()">x1</button>
+<br>
+<button onclick="x2()">x2</button>
+<br>
+<script>
+    function x1(){
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+
+if (isNaN(a) || isNaN(b) || isNaN(c)){
+alert("Por favor ingresa todos los numeros");
+return;
+}
+
+let resultado = (-b + Math.sqrt(b**2-4*a*c))/(2*a);
+alert("x1 es: " + resultado);
+}
+
+    function x2(){
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+
+if (isNaN(a) || isNaN(b) || isNaN(c)){
+alert("Por favor ingresa todos los numeros");
+return;
+}
+
+let resultado = (-b - Math.sqrt(b**2-4*a*c))/(2*a);
+alert("x2 es: " + resultado);
+}
+</script>
+<br>
+    </div>
+    <div class="col-sm-4">
+      <h3>Metodo de Cramer</h3>   
+      <label>a1:</label>
+<input type="number" id="a1"><br><br>
+
+<label>b1:</label>
+<input type="number" id="b1"><br><br>
+
+<label>c1:</label>
+<input type="number" id="c1"><br><br>
+
+
+<label>a2:</label>
+<input type="number" id="a2"><br><br>
+
+<label>b2:</label>
+<input type="number" id="b2"><br><br>
+
+<label>c2:</label>
+<input type="number" id="c2"><br><br>
+<button onclick="resolversistema()">resolver sistema</button>
+   <br>
+   <script>
+    function resolversistema(){
+    let a1 = parseFloat(document.getElementById("a1").value);
+    let b1 = parseFloat(document.getElementById("b1").value);
+    let c1 = parseFloat(document.getElementById("c1").value);
+    let a2 = parseFloat(document.getElementById("a2").value);
+    let b2 = parseFloat(document.getElementById("b2").value);
+    let c2 = parseFloat(document.getElementById("c2").value);
+
+if (isNaN(a1) || isNaN(b1) || isNaN(c1) || isNaN(a2) || isNaN(b2) || isNaN(c2)){
+alert("Por favor ingresa todos los numeros");
+return;
+}
+
+let resultadoX = (c1*b2-c2*b1)/(a1*b2-a2*b1);
+let resultadoY = (a1*c2-c1*a2)/(a1*b2-a2*b1);
+alert("x es: " + resultadoX  +    "y es:" + resultadoY);
+
+}
+
+   
+   </script>
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
